@@ -1,10 +1,35 @@
-# ND1309 C2 Ethereum Smart Contracts, Tokens and Dapps - Project Starter 
-**PROJECT: Decentralized Star Notary Service Project** - For this project, you will create a DApp by adding functionality with your smart contract and deploy it on the public testnet.
+# ERC721 Pedro Star Token
+**Decentralized Star Notary Service Project** - This DApp allows managing ERC721 Pedro Star Tokens and the contract can be verified on the public Rinkeby network.
 
-### ToDo
-This Starter Code has already implemented the functionalities you implemented in the StarNotary (Version 2) exercise, and have comments in all the files you need to implement your tasks.
+### Project build configuration
+* Truffle v5.5.23 (core: 5.5.23)
+* Ganache v7.3.2
+* Solidity - 0.8.15 (solc-js)
+* Node v16.16.0
+* Web3.js v1.7.4
+* OpenZeppelin 4.7.2
 
+### Token details
+* Name: Pedro Star
+* Symbol: PST
+* Address on Rinkeby: 0xD6eA51dD1cF02C7a96B4335F277D610C3Fc92b7F
 
+### Deployment result
+```bash
+Deploying 'StarNotary'
+----------------------
+> transaction hash:    0xdb61e03540346e05ec4775ce2e1850c2bd878fd95e7b992b08c95885b36e63df
+> Blocks: 1            Seconds: 12
+> contract address:    0xD6eA51dD1cF02C7a96B4335F277D610C3Fc92b7F
+> block number:        11131553
+> block timestamp:     1659434935
+> account:             0xeAFe3C31f128d7b66114BD16f1d57aC7B2Ba3128
+> balance:             0.191414852382805103
+> gas used:            2870151 (0x2bcb87)
+> gas price:           2.500000036 gwei
+> value sent:          0 ETH
+> total cost:          0.007175377603325436 ETH
+````
 
 ### Dependencies
 For this project, you will need to have:
@@ -24,13 +49,13 @@ npm uninstall -g truffle
 # Install
 npm install -g truffle
 # Specify a particular version
-npm install -g truffle@5.0.2
+npm install -g truffle@5
 # Verify the version
 truffle version
 ```
 
 
-2. **Metamask: 5.3.1** - If you need to update Metamask just delete your Metamask extension and install it again.
+2. **Metamask: 10.17.0** - If you need to update Metamask just delete your Metamask extension and install it again.
 
 
 3. [Ganache](https://www.trufflesuite.com/ganache) - Make sure that your Ganache and Truffle configuration file have the same port.
@@ -38,10 +63,12 @@ truffle version
 
 4. **Other mandatory packages**:
 ```bash
+# install in the root
+npm install @openzeppelin/contracts@4.7.2
+npm install @truffle/hdwallet-provider@2.0.12
+
 cd app
 # install packages
-npm install --save  openzeppelin-solidity@2.3
-npm install --save  truffle-hdwallet-provider@1.0.17
 npm install webpack-dev-server -g
 npm install web3
 ```
@@ -116,14 +143,14 @@ After a long install, everything will work just fine!
 #### Error 2
 ```
 ParserError: Source file requires different compiler version. 
-Error: Truffle is currently using solc 0.5.16, but one or more of your contracts specify "pragma solidity >=0.X.X <0.X.X".
+Error: Truffle is currently using solc x.x.x, but one or more of your contracts specify "pragma solidity >=0.X.X <0.X.X".
 ```
 **Solution:** In such a case, ensure the following in `truffle-config.js`:
 ```js
 // Configure your compilers  
 compilers: {    
-  solc: {      
-    version: "0.5.16", // <- Use this        
+  solc: {
+    version: "0.8.15", // <- Use this        
     // docker: true,
     // ...
 ```
